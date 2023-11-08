@@ -9,18 +9,18 @@ export class BackendService {
   constructor(private http: HttpClient) {}
 
   registerUser(name: String, amount: Number) {
-    return this.http.post(`http://localhost:3000/api/setup`, {
+    return this.http.post(`http://139.59.8.158:8080/api/setup`, {
       name,
       amount,
     });
   }
 
   fetchWalletDetails(id: String) {
-    return this.http.get(`http://localhost:3000/api/wallet/${id}`);
+    return this.http.get(`http://139.59.8.158:8080/api/wallet/${id}`);
   }
 
   transaction(id:String,amount:number,description:string) {
-    return this.http.post(`http://localhost:3000/api/transact/${id}`,{
+    return this.http.post(`http://139.59.8.158:8080/api/transact/${id}`,{
       description,
       amount,
     });
@@ -33,6 +33,6 @@ export class BackendService {
     .set('limit', limit.toString())
     .set('filter', filter.toString());
 
-    return this.http.get(`http://localhost:3000/api/transactions`,{params});
+    return this.http.get(`http://139.59.8.158:8080/api/transactions`,{params});
   }
 }
