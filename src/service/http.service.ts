@@ -6,33 +6,34 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class BackendService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   registerUser(name: String, amount: Number) {
-    return this.http.post(`http://139.59.8.158:8080/api/setup`, {
+
+    return this.http.post(`https://thank-you-iss.davidvelho.com/api/setup`, {
       name,
       amount,
     });
   }
 
   fetchWalletDetails(id: String) {
-    return this.http.get(`http://139.59.8.158:8080/api/wallet/${id}`);
+    return this.http.get(`https://thank-you-iss.davidvelho.com/api/wallet/${id}`);
   }
 
-  transaction(id:String,amount:number,description:string) {
-    return this.http.post(`http://139.59.8.158:8080/api/transact/${id}`,{
+  transaction(id: String, amount: number, description: string) {
+    return this.http.post(`https://thank-you-iss.davidvelho.com/api/transact/${id}`, {
       description,
       amount,
     });
   }
 
-  fetchTransactions(walletId:any,skip:any=0,limit:any=10,filter:string) {
+  fetchTransactions(walletId: any, skip: any = 0, limit: any = 10, filter: string) {
     const params = new HttpParams()
-    .set('walletId', walletId)
-    .set('skip', skip.toString())
-    .set('limit', limit.toString())
-    .set('filter', filter.toString());
+      .set('walletId', walletId)
+      .set('skip', skip.toString())
+      .set('limit', limit.toString())
+      .set('filter', filter.toString());
 
-    return this.http.get(`http://139.59.8.158:8080/api/transactions`,{params});
+    return this.http.get(`https://thank-you-iss.davidvelho.com/api/transactions`, { params });
   }
 }
