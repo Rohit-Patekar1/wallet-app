@@ -1,0 +1,43 @@
+<div class="transaction-table-container">
+  <h2>Transaction History</h2>
+<button class="btn" (click)="goBack()">Go Back</button>
+<button class="btn" (click)="downloadCSV()">Download CSV</button>
+<div class="filter-options">
+  <label><input type="radio" name="sortOptions" value="amount_highest" (change)="applySort('amount_highest')"> Amount Highest</label>
+  <label><input type="radio" name="sortOptions" value="amount_lowest" (change)="applySort('amount_lowest')"> Amount Lowest</label>
+  <label><input type="radio" name="sortOptions" value="date_latest" (change)="applySort('date_latest')"> Date Latest</label>
+  <label><input type="radio" name="sortOptions" value="date_earliest" (change)="applySort('date_earliest')"> Date Earliest</label>
+</div>
+  <table class="transaction-table">
+    <thead>
+      <tr>
+        <th>Date </th>
+        <th>Balance</th>
+        <th>Amount</th>
+        <th>Type </th>
+        <th>Remarks</th>
+        <th>Transaction ID</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let item of transactionsData">
+      <td>{{item.createdAt | date: 'yyyy-MM-dd' }}</td>
+      <td>{{item.balance }}</td>
+      <td>{{item.amount }}</td>
+      <td>{{item.type }}</td>
+      <td>{{item.description }}</td>
+      <td>{{item.transactionId }}</td>
+    </tbody>
+  </table>
+
+  <div class="transaction-history-footer">
+    <div class="pagination-info">
+      <span>Page <strong id="currentPage">{{pageCount}}</strong> of <strong id="totalPages">{{totalPages}}</strong></span>
+    </div>
+
+    <div class="pagination-controls">
+      <button class="page-button" (click)="previous()">Previous</button>
+      <button class="page-button" (click)="next()">Next</button>
+    </div>
+  </div>
+
+</div>

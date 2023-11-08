@@ -1,0 +1,69 @@
+
+<body *ngIf="isUserLoggedIn">
+    <div class="wallet-app">
+        <div class="balance-info">
+            <h1>Hello, {{ username }}!</h1>
+            <div class="total-balance">
+                <span>${{ balance }}</span>
+                <small>Total Balance</small>
+            </div>
+        </div>
+
+        <div class="navigation">
+          <div class="send-container">
+            <button class="send-btn" (click)="toggleDropdown('debit')">Debit Amount</button>
+
+            <div *ngIf="showDebitDropdown" id="sendDropdown">
+
+              <input type="number" class="dropdown-input" placeholder="Enter amount" [(ngModel)]="amount"/>
+
+              <input type="text" class="dropdown-input" placeholder="Add a debit remark" [(ngModel)]="remarks"/>
+
+              <button class="dropdown-action-btn send-action-btn" (click)="toggleDropdown('debit'); doTransaction('debit')">Send</button>
+
+              <button class="dropdown-action-btn cancel-action-btn" (click)="toggleDropdown('debit')">Cancel</button>
+
+            </div>
+          </div>
+
+          <div class="send-container">
+
+            <button class="send-btn" (click)="toggleDropdown('credit')">Credit Amount</button>
+
+            <div *ngIf="showCreditDropdown" id="creditDropdown">
+              <input type="number" class="dropdown-input" [(ngModel)]="amount" placeholder="Enter amount" />
+              <input type="text" class="dropdown-input" [(ngModel)]="remarks" placeholder="Add a credit remark" />
+              <button class="dropdown-action-btn send-action-btn" (click)="toggleDropdown('credit');doTransaction('credit')">Send</button>
+              <button class="dropdown-action-btn cancel-action-btn" (click)="toggleDropdown('credit')">Cancel</button>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="transactions ct">
+          <h3> To view transactions click here</h3>
+          <p >⬇️</p>
+          <button class="see-all" (click)="fetchTransaction()">Transactions</button>
+        </div>
+    </div>
+</body>
+
+
+
+ <div *ngIf="!isUserLoggedIn" class="landing-container">
+  <h1>Welcome to Wallet App</h1>
+  <p>Create your account and start managing your finances with ease.</p>
+
+  <form class="account-form">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" placeholder="Enter your username" [(ngModel)]="username" required>
+    </div>
+    <div class="form-group">
+      <label for="amount">Initial Amount</label>
+      <input type="number" id="amount" name="amount" placeholder="Enter initial amount" [(ngModel)]="amount" min="0">
+    </div>
+    <button type="submit" class="create-account-btn" (click)="saveWallet()">Create Account</button>
+  </form>
+</div>
+

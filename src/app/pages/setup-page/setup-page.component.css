@@ -1,0 +1,352 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif; 
+}
+
+body {
+  background-color: #f4f7fa; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.wallet-app {
+  width: 100%;
+  max-width: 350px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  overflow: hidden; 
+  padding: 20px;
+  height: 500px;
+}
+
+/* Header */
+.header {
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.header h2 {
+  font-size: 26px;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Balance Info */
+.total-balance {
+  background: linear-gradient(to right, #8456EC, #E87BF8);
+  color: #fff;
+  padding: 15px 20px;
+  border-radius: 10px;
+  margin-bottom: 20px; 
+  text-align: center;
+  position: relative; 
+}
+
+.total-balance:before {
+  content: '';
+  position: absolute;
+  top: -7px;
+  right: -7px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  width: 14px;
+  height: 14px; 
+}
+
+.total-balance span {
+  display: block;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.total-balance small {
+  font-size: 14px;
+}
+
+.ct{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Navigation Buttons */
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.nav-btn {
+  background: #EDF1F7; 
+  border: none;
+  padding: 10px;
+  flex: 1;
+  border-radius: 10px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-size: 14px;
+  color: #333;
+}
+
+.nav-btn:not(:last-child) {
+  margin-right: 10px;
+}
+
+.nav-btn:hover {
+  background: #E2E6EE;
+}
+
+/* Transactions */
+.transactions h3 {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.transactions {
+  background-color: #ffffff; 
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+  padding: 15px; 
+}
+
+.transaction-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  padding: 10px 0; 
+  border-bottom: 1px solid #eee; 
+  font-size: 14px;
+}
+
+.transaction-item:last-child {
+  border-bottom: none; 
+}
+
+.transaction-item span {
+  color: #333; 
+}
+
+.transaction-item span:first-child {
+  font-weight: bold; 
+}
+
+.transaction-item .amount {
+  color: #E63946; 
+  font-weight: bold; 
+}
+
+.see-all {
+  font-size: 14px;
+  color: #5073B8;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
+.transaction-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px; 
+}
+
+.transaction-header h3 {
+  font-weight: bold;
+}
+
+
+.see-all {
+  display: inline-block; 
+  font-size: 14px;
+  color: #5073B8; 
+  padding: 5px 10px; 
+  margin-left: 10px; 
+  text-decoration: none; 
+  border-radius: 15px; 
+  transition: background-color 0.2s, color 0.2s;
+  font-weight: bold; 
+}
+
+.see-all:hover {
+  background-color: #5073B8; 
+  color: #ffffff; 
+  text-decoration: none; 
+}
+
+
+.send-btn {
+  background: #8456EC; 
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-weight: 600;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+
+.send-btn:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+.dropdown-menu {
+  display: none; 
+  position: absolute;
+  top: 50px; 
+  left: 0;
+  right: 0;
+  margin: 0 auto; 
+  width: 90%; 
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  z-index: 1000; 
+}
+
+
+.dropdown-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #E2E8F0; 
+  box-sizing: border-box;
+}
+
+
+.dropdown-action-btn {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.send-action-btn {
+  background: #22C55E; 
+  color: white;
+}
+
+.cancel-action-btn {
+  background-color: #f44336;
+  color: #64748B; 
+}
+
+
+.show-dropdown {
+  display: block;
+}
+
+.send-container {
+  position: relative; 
+}
+
+
+#sendDropdown {
+  position: absolute;
+  top: 100%; 
+  left: 0;
+  right: 0;
+  background-color: white; 
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1); 
+  padding: 10px;
+  z-index: 1000; 
+  width: 300px;
+}
+
+#creditDropdown {
+  position: absolute;
+  top: 100%; 
+  left: -130%;
+  right: 0;
+  background-color: white; 
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1); 
+  padding: 10px;
+  z-index: 1000; 
+  width: 300px;
+}
+
+
+.landing-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+h1 {
+  color: #333;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.account-form {
+  background: #f7f7f7;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: .5rem;
+  color: #666;
+}
+
+input {
+  width: 100%;
+  padding: .75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+}
+
+.create-account-btn {
+  background-color: #5cb85c;
+  color: white;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+  transition: background-color 0.3s;
+}
+
+.create-account-btn:hover {
+  background-color: #4cae4c;
+}

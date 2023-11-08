@@ -1,0 +1,123 @@
+.transaction-table-container {
+  font-family: 'Your font', sans-serif;
+  color: #333;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: auto;
+}
+
+.transaction-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.transaction-table th,
+.transaction-table td {
+  text-align: left;
+  padding: 12px 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.transaction-table th {
+  position: relative;
+  cursor: pointer;
+}
+
+.sort-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.8em;
+  margin-left: 5px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.page-button {
+  border: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  cursor: pointer;
+  background-color: #7c5dfa;
+  color: white;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+.page-button:hover {
+  background-color: #6d4ecb;
+}
+
+.transaction-history-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.records-per-page {
+  display: flex;
+  align-items: center;
+}
+
+.records-per-page label {
+  margin-right: 10px;
+}
+
+.records-per-page select {
+  border: 1px solid #ccc; 
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.filter-options {
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+.filter-options label {
+  margin-right: 20px;
+  font-weight: normal;
+}
+
+.btn {
+  background-color: #4CAF50; 
+  color: white;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.4s; 
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  margin-right: 100px;
+}
+
+.btn:hover {
+  background-color: white;
+  color: #4CAF50;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+
+.btn:focus,
+.btn:active {
+  outline: none;
+  border: none;
+  position: relative;
+  top: 1px;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+}
+
+
