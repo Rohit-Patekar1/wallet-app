@@ -14,6 +14,7 @@ export class TableComponent implements OnInit {
   pageCount: number = 1;
   totalPages: number = 1;
   filters: string = DateFilter.EARLIEST;
+  isLoading:boolean=false;
   constructor(
     private backendService: BackendService,
     private readonly router: Router,
@@ -21,6 +22,7 @@ export class TableComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.isLoading=true
     this.backendService
       .fetchTransactions(
         localStorage.getItem('walletId')!,
@@ -32,6 +34,7 @@ export class TableComponent implements OnInit {
         (response: any) => {
           this.transactionsData = response.transactions;
           this.totalPages = Math.ceil(response.total / 10);
+          this.isLoading=false
         },
         (error) => {
           this.snackbarService.showSnackbar(error.error.message,'error')
@@ -74,6 +77,7 @@ export class TableComponent implements OnInit {
 
   fetchTransaction(filter: string) {
     this.filters = filter;
+    this.isLoading=true
     this.backendService
       .fetchTransactions(
         localStorage.getItem('walletId')!,
@@ -85,10 +89,12 @@ export class TableComponent implements OnInit {
         (response: any) => {
           this.transactionsData = response.transactions;
           this.totalPages = Math.ceil(response.total / 10);
+          this.isLoading=false
         },
         (error) => {
           this.snackbarService.showSnackbar(error.error.message,'error')
           console.error('Error:', error);
+           this.isLoading=false
         }
       );
   }

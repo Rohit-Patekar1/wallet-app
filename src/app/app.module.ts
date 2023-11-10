@@ -9,6 +9,8 @@ import { TableComponent } from './pages/table/table.component';
 import { SnackbarComponent } from './snackbar/snackbar.component';
 import { SnackbarService } from 'src/service/snackbar.service';
 import { LoaderComponent } from './loader/loader.component';
+import { LoadingService } from 'src/service/loader.service';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +26,7 @@ import { LoaderComponent } from './loader/loader.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [SnackbarService],
+  providers: [SnackbarService,LoadingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

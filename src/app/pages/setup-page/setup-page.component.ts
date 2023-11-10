@@ -17,14 +17,16 @@ export class SetupPageComponent implements OnInit {
   transactionType: string = 'debit';
   showCreditDropdown: boolean = false;
   showDebitDropdown: boolean = false;
+  isLoading = false;
 
   constructor(
     private backendService: BackendService,
     private readonly router: Router,
-    private snackbarService: SnackbarService
+    private snackbarService: SnackbarService,
   ) {}
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.isUserLoggedIn = localStorage.getItem('walletUser')!;
     if (this.isUserLoggedIn) {
       this.backendService
@@ -33,8 +35,10 @@ export class SetupPageComponent implements OnInit {
           (response: any) => {
             this.username = response.walletData.name;
             this.balance = response.walletData.balance;
+            this.isLoading = false;
           },
           (error) => {
+            this.isLoading = false;
             this.snackbarService.showSnackbar(error.error.message, 'error');
             console.error('Error:', error.error.message);
           }
@@ -44,14 +48,17 @@ export class SetupPageComponent implements OnInit {
 
   saveWallet() {
     this.balance=this.amount
+    this.isLoading = true;
     this.backendService.registerUser(this.username, this.amount).subscribe(
       (response: any) => {
         localStorage.setItem('walletUser', 'true');
         localStorage.setItem('walletId', response.id);
         this.isUserLoggedIn = 'true';
         this.snackbarService.showSnackbar('Account created successfully!', 'success');
+        this.isLoading = false;
       },
       (error) => {
+        this.isLoading = false;
         this.snackbarService.showSnackbar(error.error.message, 'error');
         console.error('Error:', error);
       }
@@ -69,6 +76,7 @@ export class SetupPageComponent implements OnInit {
   }
 
   doTransaction(type: string) {
+    this.isLoading = true;
     if (type == 'debit') this.amount = -this.amount;
     this.backendService
       .transaction(localStorage.getItem('walletId')!, this.amount, this.remarks)
@@ -76,6 +84,7 @@ export class SetupPageComponent implements OnInit {
         (response: any) => {
           this.balance = response.balance;
           this.snackbarService.showSnackbar('Transaction successful','success')
+          this.isLoading = false;
         },
         (error) => {
           this.snackbarService.showSnackbar(error.error.message,'error')

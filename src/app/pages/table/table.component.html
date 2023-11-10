@@ -1,4 +1,5 @@
 <div class="transaction-table-container">
+  <app-loader *ngIf="isLoading"></app-loader>
   <h2>Transaction History</h2>
 <button class="btn" (click)="goBack()">Go Back</button>
 <button class="btn" (click)="downloadCSV()">Download CSV</button>
