@@ -26,9 +26,9 @@ export class SetupPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.isLoading = true;
     this.isUserLoggedIn = localStorage.getItem('walletUser')!;
     if (this.isUserLoggedIn) {
+      this.isLoading = true;
       this.backendService
         .fetchWalletDetails(localStorage.getItem('walletId')!)
         .subscribe(
