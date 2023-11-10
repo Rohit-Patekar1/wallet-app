@@ -48,9 +48,9 @@ export class SetupPageComponent implements OnInit {
 
   saveWallet() {
     this.balance=this.amount
-    this.isLoading = true;
     this.backendService.registerUser(this.username, this.amount).subscribe(
       (response: any) => {
+        this.isLoading = true;
         localStorage.setItem('walletUser', 'true');
         localStorage.setItem('walletId', response.id);
         this.isUserLoggedIn = 'true';
