@@ -50,12 +50,10 @@ export class SetupPageComponent implements OnInit {
     this.balance=this.amount
     this.backendService.registerUser(this.username, this.amount).subscribe(
       (response: any) => {
-        this.isLoading = true;
         localStorage.setItem('walletUser', 'true');
         localStorage.setItem('walletId', response.id);
         this.isUserLoggedIn = 'true';
         this.snackbarService.showSnackbar('Account created successfully!', 'success');
-        this.isLoading = false;
       },
       (error) => {
         this.isLoading = false;
