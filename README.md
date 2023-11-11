@@ -4,6 +4,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Authentication is not implemented as mentioned in the task hence no routes are protected and auth guard is not implemented
 Clone this repository, run `npm i` and finally `npm start`
 
+Deployed website on :- https://wallet-app-7pdd.vercel.app/transactions
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
@@ -14,8 +16,6 @@ The Wallet App frontend consists of three main pages, each designed to provide a
 
 ### Landing Page - Account Setup
 
-![Landing Page](https://wallet-app-7pdd.vercel.app/)
-
 The landing page serves as the entry point for new users to set up their wallet account. Here, users can enter their desired username and an initial amount to get started with their wallet.
 
 - **Username Field**: Where new users can choose a unique username for their account.
@@ -23,8 +23,6 @@ The landing page serves as the entry point for new users to set up their wallet 
 - **Create Account Button**: After filling out the form, users can submit their details and create their wallet account.
 
 ### Wallet Page - Balance and Transactions
-
-![Wallet Page](https://wallet-app-7pdd.vercel.app/)
 
 Once the account is set up, users are directed to the wallet page. This page is the hub for managing finances within the app.
 
@@ -35,7 +33,6 @@ Once the account is set up, users are directed to the wallet page. This page is 
 
 ### Transaction History Page 
 
-[Transaction History  Page](https://wallet-app-7pdd.vercel.app/transactions)
 The transaction history page provides users with a detailed log of all their transactions.
 
 - **Transaction Table**: Lists all transactions along with their details such as date, balance, amount, type, and remarks.
