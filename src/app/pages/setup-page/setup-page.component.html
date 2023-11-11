@@ -16,7 +16,7 @@
 
             <div *ngIf="showDebitDropdown" id="sendDropdown">
 
-              <input type="number" class="dropdown-input" placeholder="Enter amount" [(ngModel)]="amount"/>
+              <input type="number" class="dropdown-input" placeholder="Enter amount" [(ngModel)]="amount" step="0.0001" appRestrictDecimals/>
 
               <input type="text" class="dropdown-input" placeholder="Add a debit remark" [(ngModel)]="remarks"/>
 
@@ -32,7 +32,7 @@
             <button class="send-btn" (click)="toggleDropdown('credit')">Credit Amount</button>
 
             <div *ngIf="showCreditDropdown" id="creditDropdown">
-              <input type="number" class="dropdown-input" [(ngModel)]="amount" placeholder="Enter amount" />
+              <input type="number" class="dropdown-input" [(ngModel)]="amount" placeholder="Enter amount" step="0.0001" appRestrictDecimals/>
               <input type="text" class="dropdown-input" [(ngModel)]="remarks" placeholder="Add a credit remark" />
               <button class="dropdown-action-btn send-action-btn" (click)="toggleDropdown('credit');doTransaction('credit')">Send</button>
               <button class="dropdown-action-btn cancel-action-btn" (click)="toggleDropdown('credit')">Cancel</button>

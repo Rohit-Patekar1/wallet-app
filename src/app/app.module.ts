@@ -10,6 +10,7 @@ import { SnackbarComponent } from './snackbar/snackbar.component';
 import { SnackbarService } from 'src/service/snackbar.service';
 import { LoaderComponent } from './loader/loader.component';
 import { LoadingService } from 'src/service/loader.service';
+import { RestrictDecimalsDirective } from './restrict-decimal.directive';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { LoadingService } from 'src/service/loader.service';
     SetupPageComponent,
     TableComponent,
     SnackbarComponent,
-    LoaderComponent
+    LoaderComponent,
+    RestrictDecimalsDirective
   ],
   imports: [
     BrowserModule,
