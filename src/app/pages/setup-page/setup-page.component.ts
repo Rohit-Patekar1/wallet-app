@@ -85,6 +85,7 @@ export class SetupPageComponent implements OnInit {
           this.isLoading = false;
         },
         (error) => {
+          this.isLoading = false;
           this.snackbarService.showSnackbar(error.error.message,'error')
           console.error('Error:', error.error.message);
         }
